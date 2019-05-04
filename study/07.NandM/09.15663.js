@@ -1,6 +1,6 @@
-var path = require('path');
-var input = require('fs').readFileSync(path.resolve('study/07.NandM/09.15663.txt'), 'utf8').toString().trim().split('\n');
-// var input = require('fs').readFileSync('/dev/stdin').toString().trim().split(' ');
+// var path = require('path');
+// var input = require('fs').readFileSync(path.resolve('study/07.NandM/09.15663.txt'), 'utf8').toString().trim().split('\n');
+var input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
 
 
 var check = [];
@@ -40,16 +40,18 @@ function go(index, n, m) {
 }
 
 var noDuplicateNumber = [];
-for (let ix = 0; ix < num.length; ix++) {
+for (var ix = 0; ix < num.length; ix++) {
     var number = num[ix];
 
-    if (ix + 1 > num.length) return;
+    if (ix + 1 > num.length) {
+        continue;
+    }
     if (ix === 0) {
         noDuplicateNumber.push(number);
         check[noDuplicateNumber.length - 1] = 1;
     }
     else if (num[ix] === num[ix - 1]) {
-        // check[noDuplicateNumber.length - 1] += 1;
+        check[noDuplicateNumber.length - 1] += 1;
     }
     else {
         noDuplicateNumber.push(number);

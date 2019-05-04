@@ -1,12 +1,13 @@
-var path = require('path');
-var input = require('fs').readFileSync(path.resolve('study/07.NandM/11.15665.txt'), 'utf8').toString().trim().split('\n');
-// var input = require('fs').readFileSync('/dev/stdin').toString().trim().split(' ');
+// var path = require('path');
+// var input = require('fs').readFileSync(path.resolve('study/07.NandM/11.15665.txt'), 'utf8').toString().trim().split('\n');
+var input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
 
 
 var check = [];
-var N = +(input[0].trim().split(" "))[0]
+// var N = +(input[0].trim().split(" "))[0]
 var M = +(input[0].trim().split(" "))[1]
 var value = (input[1].trim().split(" "));
+var result = [];
 var num = [];
 var output = [];
 for(var ix = 0; ix< value.length; ix++){
@@ -20,7 +21,8 @@ num.sort(function (a ,b) {
 
 function go(index, n, m) {
     if (index == m) {
-        console.log(output.join(" "));
+        // console.log(output.join(" "));
+        result.push(output.join(" "))
         return
     }
 
@@ -34,10 +36,12 @@ function go(index, n, m) {
     }
 }
 var noDuplicateNumber = [];
-for (let ix = 0; ix < num.length; ix++) {
+for (var ix = 0; ix < num.length; ix++) {
     var number = num[ix];
 
-    if (ix + 1 > num.length) return;
+    if (ix + 1 > num.length) {
+        continue;
+    }
     if (ix === 0) {
         noDuplicateNumber.push(number);
     }
@@ -46,3 +50,4 @@ for (let ix = 0; ix < num.length; ix++) {
     }
 }
 go(0, noDuplicateNumber.length, M);
+console.log(result.join('\n'))
