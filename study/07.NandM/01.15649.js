@@ -4,13 +4,14 @@ var input = require('fs').readFileSync(path.resolve('study/07.NandM/01.15649.txt
 
 
 var check = [];
-var N = +(input[0]);
-var M = +(input[1]);
+var N = +(input[0].trim());
+var M = +(input[1].trim());
 var output = [];
 
 
 function go(index, n, m) {
     if (index == m) {
+        console.log(output.join(" "));
         return
     }
 
@@ -26,4 +27,4 @@ function go(index, n, m) {
 
 go(0, N, M);
 
-console.log(output.join("\n"));
+
