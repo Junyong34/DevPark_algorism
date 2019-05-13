@@ -1,5 +1,5 @@
 // var path = require('path');
-// var input = require('fs').readFileSync(path.resolve('study/08.Graph BFS/01.13023.txt'), 'utf8').toString().trim().split('\n');
+// var input = require('fs').readFileSync(path.resolve('study_park/08.Graph BFS/01.13023.txt'), 'utf8').toString().trim().split('\n');
 var input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
 
 var N = +input[0].trim().split(" ")[0];

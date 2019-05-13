@@ -1,5 +1,5 @@
 // var path = require('path');
-// var input = require('fs').readFileSync(path.resolve('study/07.NandM/09.15663.txt'), 'utf8').toString().trim().split('\n');
+// var input = require('fs').readFileSync(path.resolve('study_park/07.NandM/10.15664.txt'), 'utf8').toString().trim().split('\n');
 var input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
 
 
@@ -18,17 +18,17 @@ num.sort(function (a, b) {
 })
 
 
-function go(index, n, m) {
+function go(index, start, n, m) {
     if (index == m) {
         console.log(output.join(" "));
         return
     }
 
-    for (var ix = 0; ix < n; ix++) {
+    for (var ix = start; ix < n; ix++) {
         if (check[ix] > 0) {
             check[ix] -= 1;
             output[index] = noDuplicateNumber[ix];
-            go(index + 1, n, m);
+            go(index + 1, ix, n, m);
             check[ix] += 1;
         }
         // if (check[ix]) continue;
@@ -59,6 +59,6 @@ for (var ix = 0; ix < num.length; ix++) {
     }
 }
 
-go(0, N, M);
+go(0, 0, N, M);
 // result = [...new Set(output)];
 // console.log(result.join("\n"));

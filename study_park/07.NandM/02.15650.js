@@ -1,5 +1,5 @@
 var path = require('path');
-var input = require('fs').readFileSync(path.resolve('study/07.NandM/02.15650.txt'), 'utf8').toString().trim().split(' ');
+var input = require('fs').readFileSync(path.resolve('study_park/07.NandM/02.15650.txt'), 'utf8').toString().trim().split(' ');
 // var input = require('fs').readFileSync('/dev/stdin').toString().trim().split(' ');
 
 

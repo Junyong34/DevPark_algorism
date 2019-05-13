@@ -1,5 +1,5 @@
 var path = require('path');
-var input = require('fs').readFileSync(path.resolve('study/06.Bitmask/01.11723.txt'), 'utf8').toString().trim().split('\n');
+var input = require('fs').readFileSync(path.resolve('study_park/06.Bitmask/01.11723.txt'), 'utf8').toString().trim().split('\n');
 // var input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
 
 // var S = input[0] + 1;
