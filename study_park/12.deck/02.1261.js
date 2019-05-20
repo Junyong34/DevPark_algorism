@@ -16,7 +16,7 @@ var dy = [0, 0, 1, -1];
 function inputdata() {
     for (var ix = 0; ix < R; ix++) {
         var info = [];
-        var tmp = [];
+        var tmp = []
         map.push(info);
         check.push(tmp);
         dist.push([]);
@@ -34,46 +34,47 @@ var queue = new Queue();
 
 function bfs() {
 
-    queue.enqueue({X: 0, Y: 0, val: 0});
-    // check[0][0] = true;
-    dist[0][0] = 0;
-    // dist[0][0] = 0;
+    queue.enqueue({X: 0, Y: 0});
+    check[0][0] = true;
     while (queue.getLength()) {
         var index = queue.dequeue();
         var indexX = index.X;
         var indexY = index.Y;
-        var val = index.val;
-        // dist[indexX][indexY] = 0;
-        if (indexX === R - 1 && indexY === C - 1) {
-            //     console.log(val);
-            return val;
+
+        if (indexX === R - 1 & indexY === C - 1) {
+            console.log(dist);
+            return dist[R - 1][C - 1] - 1;
         }
 
-        if (dist[indexX][indexY] < val) {
-            continue;
-        }
         for (var ix = 0; ix < 4; ix++) {
             var posX = indexX + dx[ix];
             var posY = indexY + dy[ix];
-            if (posX < 0 || posY < 0 || posX >= R || posY >=C ) {
-                continue;
-            }
 
-            if (dist[posX][posY] < dist[indexX][indexY] + map[posX][posY]) {
-                dist[posX][posY] = dist[indexX][indexY] + map[posX][posY];
-                queue.enqueue({X: posX, Y: posY, val: dist[posX][posY]});
-            }
-            // if (0 <= posX && posX < R && 0 <= posY && posY < C ) {
+            // if (posX < 0 || posY < 0 || posX >= R || posY >= C) continue;
 
-            // }
+            if (0 <= posY && posY < C && 0 <= posX && posX < R) {
+                if (!check[posX][posY]) {
+                    check[posX][posY] = true;
+                    if (map[posX][posY]) {
+                        dist[posX][posY] = dist[indexX][indexY] + 1;
+                        queue.enqueue({X: posX, Y: posY});
+                    } else {
+                        dist[posX][posY] = dist[indexX][indexY];
+                        queue.enqueue({X: posX, Y: posY});
+                    }
+                }
+            }
+            // if (posX < 0 || posY < 0 || posX >= R || posY >= C) continue;
+            // if (check[posX][posY]) continue;
+            // check[posX][posY] = 1;
+            // map[posX][posY] = map[indexX][indexY] + 1;
+            // queue.enqueue({X: posX, Y: posY, VAL: val + (map[posX][posY] === 1 ? 1: 0 )});
         }
     }
-    // return 0;
+    return 0;
 }
 
-bfs();
-console.log(dist);
-console.log(dist[R - 1][C - 1]);
+console.log(bfs());
 // // console.timeEnd("bbb");
 // // console.log(map)
 // var day = -1;
