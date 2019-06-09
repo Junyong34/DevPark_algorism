@@ -1,2 +1,27 @@
 4
 1 5 6 7
+
+//
+
+create table  테이블 생성 명령어.
+
+drop table  테이블 삭제 명령어.
+
+alter table  테이블 정보 수정 명령어.(column (add, delete , update)
+
+cretate table EMP
+ (
+     constraint  empno number(10) primary key,
+      ename varchar2(20),
+      sal number(60,
+      constraint depfk foreign key(deptno),
+      ON DELETE CASCADE, /* 삭제가 실행되면 참조된 관계 테이블 테이더도 같이 삭제처리 실행 */
+  )
+
+table Nmae Change
+- alter table EMP
+        RENAME TO NEW_EMP
+
+CASCADE 참초 관계 옵션
+
+- 해당 옵션을 주게되면 CASCADE에 참조하고 있는 모든 데이터가 바인딩 된다.
