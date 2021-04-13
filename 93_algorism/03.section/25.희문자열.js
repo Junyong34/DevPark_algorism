@@ -22,6 +22,12 @@ const solution = (str) => {
 
     return (rareStr.join('').toUpperCase() === str.toUpperCase()) ? 'YES':'NO';
 }
+function solution2(s){
+    let answer="YES";
+    s=s.toLowerCase();
+    if(s.split('').reverse().join('')!=s) return "NO";
+    return answer;
+}
 
 let str="gooG";
 console.log(solution(str));
