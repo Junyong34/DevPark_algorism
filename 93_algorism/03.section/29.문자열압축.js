@@ -32,6 +32,7 @@ function solution(str){
     return result.join('');
 }
 
+
 function solution2(s){
     let answer="";
     let cnt=1;
